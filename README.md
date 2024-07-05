@@ -1,3 +1,3 @@
 # TallerDeProgramacion
 
-TP's individuales.
+TP's.
