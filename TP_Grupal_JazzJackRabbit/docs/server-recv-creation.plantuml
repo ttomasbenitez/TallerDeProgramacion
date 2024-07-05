@@ -1,0 +1,24 @@
+@startuml "Server Recv of Player Jump"
+
+actor Client
+
+Client -> ClientRecvHandler: <packet>
+ClientRecvHandler -> Socket: receive packet size
+ClientRecvHandler -> Socket: receive action
+ClientRecvHandler -> ClientAction: deserialize(buffer)
+ClientAction -> ClientRecvHandler: action
+ClientRecvHandler -> GameManager: route(action)
+GameManager -> GameManager: handleUnjoinedCmd(action)
+GameManager -> Gameloop: <<create>>
+GameManager -> Gameloop: start()
+GameManager -> GameRecvQueue: push((clientID, join))
+|||
+[-> Gameloop: tick
+Gameloop -> GameRecvQueue: try_pop()
+GameRecvQueue -> Gameloop: (clientID, action)
+Gameloop -> PlayerMap: handleJoin(clientID)
+PlayerMap -> Level: getSpawnPoint
+PlayerMap -> Player: <<create>>
+PlayerMap -> GameMap: add(player)
+
+@enduml

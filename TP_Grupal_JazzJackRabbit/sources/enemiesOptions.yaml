@@ -1,0 +1,10 @@
+background: 85
+player: 1
+elements:
+    - id: 63
+      type: 'Crab'
+    - id: 64
+      type: 'Fish'
+    - id: 65
+      type: 'Turtle'
+

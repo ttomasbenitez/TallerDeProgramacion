@@ -1,0 +1,11 @@
+@startuml "Server Send GameState"
+
+[-> Gameloop: tick
+Gameloop -> GameMap: dumpState()
+GameMap -> Gameloop: GameState
+Gameloop -> GameManager: broadcast(gameID, GameState)
+loop every client in the game
+  GameManager -> ClientSendQueue: push(GameState)
+end
+
+@enduml

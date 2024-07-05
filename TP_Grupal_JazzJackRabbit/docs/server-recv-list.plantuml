@@ -1,0 +1,15 @@
+@startuml "Server Recv of List"
+
+actor Client
+
+Client -> ClientRecvHandler: <packet>
+ClientRecvHandler -> Socket: receive packet size
+ClientRecvHandler -> Socket: receive action
+ClientRecvHandler -> ClientAction: deserialize(buffer)
+ClientAction -> ClientRecvHandler: action
+ClientRecvHandler -> GameManager: route(action)
+GameManager -> GameManager: handleUnjoinedCmd(action)
+GameManager -> GameManager: makeGameList()
+GameManager -> ClientSendQueue: push(gameList)
+
+@enduml

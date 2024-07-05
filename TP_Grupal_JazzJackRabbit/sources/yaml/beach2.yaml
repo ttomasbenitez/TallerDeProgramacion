@@ -1,0 +1,232 @@
+scenery: 1
+background: 86
+width: 5258
+height: 480
+entities:
+  - type: Floor
+    id: 73
+    x: -1
+    y: 430
+  - type: Algae
+    id: 91
+    x: 256
+    y: 381
+  - type: Algae
+    id: 91
+    x: 346
+    y: 380
+  - type: FloatingPlatform
+    id: 76
+    x: 981
+    y: 235
+  - type: FloatingPlatform
+    id: 76
+    x: 1192
+    y: 182
+  - type: FloatingPlatform
+    id: 76
+    x: 1389
+    y: 182
+  - type: Coin
+    id: 67
+    x: 1045
+    y: 165
+  - type: Coin
+    id: 67
+    x: 843
+    y: 225
+  - type: Algae
+    id: 91
+    x: 1214
+    y: 134
+  - type: Coin
+    id: 67
+    x: 1460
+    y: 112
+  - type: FloatingPlatform
+    id: 76
+    x: 1583
+    y: 182
+  - type: FloatingPlatform
+    id: 76
+    x: 1814
+    y: 151
+  - type: FloatingPlatform
+    id: 76
+    x: 2065
+    y: 127
+  - type: Coin
+    id: 67
+    x: 1880
+    y: 86
+  - type: Algae
+    id: 91
+    x: 2085
+    y: 81
+  - type: Platform
+    id: 75
+    x: 2265
+    y: 194
+  - type: Platform
+    id: 75
+    x: 2565
+    y: 194
+  - type: Turtle
+    id: 65
+    x: 2433
+    y: 79
+  - type: Turtle
+    id: 65
+    x: 2647
+    y: 80
+  - type: Platform
+    id: 75
+    x: 2865
+    y: 194
+  - type: Coin
+    id: 67
+    x: 2785
+    y: 124
+  - type: Algae
+    id: 91
+    x: 2561
+    y: 146
+  - type: Gem
+    id: 66
+    x: 2385
+    y: 110
+  - type: Turtle
+    id: 65
+    x: 2851
+    y: 75
+  - type: Crab
+    id: 63
+    x: 3439
+    y: 310
+  - type: Crab
+    id: 63
+    x: 3691
+    y: 304
+  - type: Crab
+    id: 63
+    x: 3963
+    y: 295
+  - type: Algae
+    id: 91
+    x: 3565
+    y: 381
+  - type: Algae
+    id: 91
+    x: 3875
+    y: 382
+  - type: Coin
+    id: 67
+    x: 3618
+    y: 379
+  - type: Coin
+    id: 67
+    x: 3924
+    y: 375
+  - type: ExitSign
+    id: 80
+    x: 4642
+    y: 381
+  - type: Floor
+    id: 73
+    x: 299
+    y: 430
+  - type: Floor
+    id: 73
+    x: 3164
+    y: 432
+  - type: Floor
+    id: 73
+    x: 3463
+    y: 432
+  - type: Floor
+    id: 73
+    x: 3761
+    y: 432
+  - type: Floor
+    id: 73
+    x: 4060
+    y: 432
+  - type: Floor
+    id: 73
+    x: 4359
+    y: 432
+  - type: Floor
+    id: 73
+    x: 4659
+    y: 432
+  - type: Floor
+    id: 73
+    x: 4958
+    y: 432
+  - type: Algae
+    id: 91
+    x: 4288
+    y: 382
+  - type: Algae
+    id: 91
+    x: 4346
+    y: 381
+  - type: Algae
+    id: 91
+    x: 4225
+    y: 385
+  - type: Algae
+    id: 91
+    x: 4851
+    y: 383
+  - type: Algae
+    id: 91
+    x: 4918
+    y: 383
+  - type: Coin
+    id: 67
+    x: 4879
+    y: 299
+  - type: Fish
+    id: 64
+    x: 4416
+    y: 311
+  - type: FloatingPlatform
+    id: 76
+    x: 586
+    y: 364
+  - type: Coin
+    id: 67
+    x: 644
+    y: 309
+  - type: Crab
+    id: 63
+    x: 1530
+    y: 103
+  - type: Crab
+    id: 63
+    x: 1324
+    y: 109
+  - type: Coin
+    id: 67
+    x: 2134
+    y: 78
+  - type: FloatingPlatform
+    id: 76
+    x: 784
+    y: 296
+  - type: PoisonFruit
+    id: 159
+    x: 3318
+    y: 401
+  - type: PoisonFruit
+    id: 159
+    x: 4183
+    y: 400
+player_spawn_points:
+  - x: 66
+    y: 339
+  - x: 2107
+    y: -51
+  - x: 3211
+    y: 284

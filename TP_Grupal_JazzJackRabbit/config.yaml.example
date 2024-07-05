@@ -1,0 +1,51 @@
+---
+listen_port: 1234
+start_paused: false
+physics:
+  tps: 15
+  scaler: 1
+  gravity: 1000
+  impact_speed_reduction_factor: 2
+  player_speed: 200
+  player_speed_fast: 400
+  jump_speed: 500
+limits:
+  sendq: 1000
+  recvq: 1000
+game:
+  length_secs: 120
+  player_health: 20
+  players: 1
+  coin_points: 1
+  enemy_respawn_cooldown: 5
+  poison_time: 5
+  player_respawn_cooldown: 2
+  drop_expiry: 10
+  base_weapon_damage: 5
+  fireball_weapon_damage: 10
+  rocket_weapon_damage: 20
+  base_projectile_speed: 250
+  base_shooting_speed: 1
+  combo_damage: 10
+entities:
+  wandering:
+    drops:
+      gem: 0.5
+      rocket: 0.1
+      fireball: 0.3
+  crab:
+    health: 10
+    damage: 2
+  fish:
+    health: 15
+    damage: 5
+  turtle:
+    health: 20
+    damage: 8
+  madHatter:
+    health: 25
+    damage: 8
+  skeleton:
+    health: 15
+    damage: 3
+    

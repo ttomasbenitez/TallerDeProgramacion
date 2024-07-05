@@ -1,0 +1,64 @@
+background:  84
+elements:
+    - id:   125
+      type:   'Landscape'
+    - id:   124
+      type:   'FloorPsychedelia'
+    - id:   136
+      type:   'FloorPsychedelia'
+    - id:   138
+      type:   'FloorPsychedelia'
+    - id:   142
+      type:   'FloorPsychedelia'
+    - id:   143
+      type:   'Rocks'
+    - id:   139
+      type:   'StoneTower'
+    - id:   153
+      type:   'stoneTowerFloor'
+    - id:   140
+      type:   'ColumnStones'
+    - id:   141
+      type:   'ColumnStonesRight'
+    - id:   144
+      type:   'ColumnStonesLower'
+    - id:   145
+      type:   'ColumnStonesLowerRight'
+    - id:   123
+      type:   'Arrow'
+    - id:   126
+      type:   'FloatingFloor'
+    - id:   128
+      type:   'RisePsychedelia'
+    - id:   146
+      type:   'FloorPsychedelia'
+    - id:   147
+      type:   'Rocks'
+    - id:   127
+      type:   'DescentPsychedelia'
+    - id:   148
+      type:   'FloorPsychedelia'
+    - id:   149
+      type:   'Rocks'
+    - id:   130
+      type:   'ExitSignPsychedelia'
+    - id:   66
+      type:   'Gem'
+    - id:   67
+      type:   'Coin'
+    - id: 159
+      type:	'PoisonFruit'
+    - id:   129
+      type:   'RedMushroom'
+    - id:   154
+      type:   'madHatter'
+    - id:   155
+      type:   'skeleton'
+    - id:   65
+      type:   'Turtle'
+    - id:   131
+      type:   'Rocks'
+    - id:   137
+      type:   'Rocks'
+    - id:   81
+      type:   'SpawnPoint'

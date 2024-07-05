@@ -1,0 +1,34 @@
+background:  86
+elements:
+    - id:   82
+      type:   'Landscape'
+    - id:   73
+      type:   'Floor'
+    - id:   74
+      type:   'FloatingFloor'
+    - id:   75
+      type:   'Platform'
+    - id:   76
+      type:   'FloatingPlatform'
+    - id:   77
+      type:   'Rise'
+    - id:   78
+      type:   'Descent'
+    - id:   80
+      type:   'ExitSign'
+    - id:   66
+      type:   'Gem'
+    - id:   67
+      type:   'Coin'
+    - id:   91
+      type:   'Algae'
+    - id:   63
+      type:   'Crab'
+    - id:   64
+      type:   'Fish'
+    - id:   65
+      type:   'Turtle'
+    - id:   81
+      type:   'SpawnPoint'
+    - id: 159
+      type: 'PoisonFruit'

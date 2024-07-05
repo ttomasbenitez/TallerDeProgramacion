@@ -1,0 +1,18 @@
+@startyaml "Level Layout"
+scenery: 1
+background: 86
+width: 5258
+height: 480
+entities:
+  - type: Floor
+    id: 73
+    x: -1
+    y: 430
+  - type: PoisonFruit
+    id: 159
+    x: 4183
+    y: 400
+player_spawn_points:
+  - x: 66
+    y: 339
+@endyaml

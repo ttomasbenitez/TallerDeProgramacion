@@ -1,0 +1,20 @@
+@startuml "Server Recv Game Creation"
+
+actor Client
+
+Client -> ClientRecvHandler: <packet>
+ClientRecvHandler -> Socket: receive packet size
+ClientRecvHandler -> Socket: receive action
+ClientRecvHandler -> ClientAction: deserialize(buffer)
+ClientAction -> ClientRecvHandler: action
+ClientRecvHandler -> GameManager: route(action)
+GameManager -> GameRecvQueue: push((clientID, action))
+|||
+[-> Gameloop: tick
+Gameloop -> GameRecvQueue: try_pop()
+GameRecvQueue -> Gameloop: (clientID, action)
+Gameloop -> PlayerMap: jump(clientID)
+PlayerMap -> GameMap: applyTo(playerEntityID, send jump)
+GameMap -> Player: send("jump")
+
+@enduml

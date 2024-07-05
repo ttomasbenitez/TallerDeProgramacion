@@ -1,0 +1,104 @@
+@startuml Server
+hide empty attributes
+hide circle
+
+package Protocol {
+  class ClientMessage {}
+  class GameState {}
+}
+
+class Server {
+  GameManager games;
+  Acceptor acceptor;
+  +start()
+}
+Server --* GameManager
+Server --* Network.Acceptor
+
+package Network {
+  class Acceptor <<thread>> {
+    list<ClientIOHandler> clients;
+    -reap();
+  }
+  Acceptor --* GameManager
+  Acceptor --o ClientIOHandler
+
+  class ClientIOHandler {}
+  ClientIOHandler --* ClientSendHandler
+  ClientIOHandler --* ClientRecvHandler
+  class ClientSendHandler <<thread>> {}
+  ClientSendHandler --* Protocol.GameState
+  class ClientRecvHandler <<thread>> {}
+  ClientRecvHandler --* Protocol.ClientMessage
+}
+
+class GameManager {
+  map<int, Gameloop> games
+  map<int, Queue<GameState>> s2c_queues
+  +route(ClientMessage& msg);
+  +broadcast(int gameID, GameState msg);
+  +pushCommand(std::string cmd);
+  +int add_client(std::shared_ptr<Queue<GameState>> queue);
+  +reap();
+  +exitClients(int gameID);
+}
+GameManager --o GameLogic.Gameloop
+
+package GameLogic {
+  class Gameloop <<thread>> {
+    Queue<ClientMessage> c2s_queue;
+    Queue<std::string> cmd_queue;
+    GameMap map;
+    Level level;
+    PlayerMap players;
+    +pushCommand(std::string cmd);
+    +MatchState getState();
+  }
+  Gameloop --* GameMap
+  Gameloop --* Level
+  Gameloop --* PlayerMap
+
+  class GameMap {
+    map<int, Entity> entities;
+    +GameState dumpState(Level& level, uint16_t sec_left);
+  }
+  GameMap --o Entity
+
+  class Level {
+    +loadEntities(GameMap &map);
+    +int getBackground();
+    +std::pair<float, float> getSpawnPoint(GameMap&);
+  }
+
+  class PlayerMap {
+    map<int, int> players;
+  }
+  note bottom of PlayerMap: Dispatches player actions to the correct entity
+
+  class Entity {
+    +tick(GameMap& map, float deltaT);
+    +damage(int dp);
+    +Passability onCollision(Entity& other, Axis axis);
+    +bool send(const std::string& cmd);
+    +RenderableGameEntity render();
+    +std::optional<Player> asPlayer();
+  }
+
+  class WanderingEntity extends Entity {}
+  class PlayerEntity extends Entity {}
+  class EdgesEntity extends Entity {}
+  class Platform extends Entity {}
+
+  WanderingEntity --* AnimationHandler
+  PlayerEntity --* AnimationHandler
+  Platform --* AnimationHandler
+
+  class AnimationHandler {
+    +RenderableGameEntity render();
+    +tick(float deltaT);
+    +setBase(Animation anim);
+    +animate(Animation anim, float duration);
+  }
+}
+
+@enduml

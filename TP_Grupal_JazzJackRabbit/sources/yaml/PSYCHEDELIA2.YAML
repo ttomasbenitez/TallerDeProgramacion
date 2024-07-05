@@ -1,0 +1,372 @@
+scenery: 0
+background: 84
+width: 6622
+height: 896
+entities:
+  - type: Rocks
+    id: 131
+    x: 4117
+    y: 182
+  - type: Rocks
+    id: 131
+    x: 4424
+    y: 182
+  - type: Rocks
+    id: 131
+    x: 2098
+    y: 316
+  - type: Rocks
+    id: 131
+    x: 2397
+    y: 316
+  - type: Rocks
+    id: 131
+    x: 758
+    y: 316
+  - type: Rocks
+    id: 131
+    x: 1057
+    y: 316
+  - type: Rocks
+    id: 137
+    x: 1363
+    y: 3163
+  - type: Rocks
+    id: 137
+    x: 2703
+    y: 316
+  - type: ColumnStonesLower
+    id: 144
+    x: 83
+    y: 141
+  - type: FloorPsychedelia
+    id: 136
+    x: 58
+    y: 44
+  - type: FloorPsychedelia
+    id: 138
+    x: 428
+    y: 44
+  - type: ColumnStonesLowerRight
+    id: 145
+    x: 416
+    y: 139
+  - type: Arrow
+    id: 123
+    x: 575
+    y: 30
+  - type: FloorPsychedelia
+    id: 142
+    x: 754
+    y: 262
+  - type: ColumnStonesLower
+    id: 144
+    x: 1393
+    y: 136
+  - type: FloorPsychedelia
+    id: 138
+    x: 1139
+    y: 262
+  - type: FloatingPlatform
+    id: 126
+    x: 1222
+    y: 167
+  - type: FloorPsychedelia
+    id: 136
+    x: 1363
+    y: 43
+  - type: ColumnStonesLower
+    id: 144
+    x: 1725
+    y: 135
+  - type: RedMushroom
+    id: 129
+    x: 1511
+    y: 37
+  - type: FloorPsychedelia
+    id: 138
+    x: 1735
+    y: 43
+  - type: FloorPsychedelia
+    id: 142
+    x: 2043
+    y: 280
+  - type: FloorPsychedelia
+    id: 138
+    x: 2428
+    y: 280
+  - type: FloatingPlatform
+    id: 126
+    x: 2829
+    y: 242
+  - type: FloatingPlatform
+    id: 126
+    x: 2940
+    y: 170
+  - type: FloorPsychedelia
+    id: 142
+    x: 3058
+    y: 87
+  - type: Rocks
+    id: 131
+    x: 3132
+    y: 184
+  - type: Rocks
+    id: 137
+    x: 3072
+    y: 186
+  - type: DescentPsychedelia
+    id: 127
+    x: 3568
+    y: 87
+  - type: Turtle
+    id: 65
+    x: 2573
+    y: 152
+  - type: Coin
+    id: 67
+    x: 2837
+    y: 194
+  - type: RisePsychedelia
+    id: 128
+    x: 3779
+    y: 87
+  - type: RisePsychedelia
+    id: 128
+    x: 4397
+    y: -77
+  - type: FloorPsychedelia
+    id: 124
+    x: 4118
+    y: 87
+  - type: Coin
+    id: 67
+    x: 3648
+    y: 135
+  - type: Coin
+    id: 67
+    x: 3753
+    y: 221
+  - type: Coin
+    id: 67
+    x: 3873
+    y: 121
+  - type: Rocks
+    id: 143
+    x: 4741
+    y: 17
+  - type: RisePsychedelia
+    id: 128
+    x: 5011
+    y: -240
+  - type: FloorPsychedelia
+    id: 124
+    x: 4738
+    y: -77
+  - type: FloorPsychedelia
+    id: 138
+    x: 5662
+    y: -240
+  - type: ColumnStonesRight
+    id: 141
+    x: 6230
+    y: -139
+  - type: ColumnStonesLower
+    id: 144
+    x: 6244
+    y: 140
+  - type: Coin
+    id: 67
+    x: 4412
+    y: 30
+  - type: Coin
+    id: 67
+    x: 4475
+    y: -27
+  - type: Coin
+    id: 67
+    x: 4544
+    y: -86
+  - type: Coin
+    id: 67
+    x: 5044
+    y: -132
+  - type: Coin
+    id: 67
+    x: 5093
+    y: -187
+  - type: Coin
+    id: 67
+    x: 5172
+    y: -247
+  - type: Turtle
+    id: 65
+    x: 4176
+    y: -52
+  - type: RedMushroom
+    id: 129
+    x: 5838
+    y: -256
+  - type: Coin
+    id: 67
+    x: 6116
+    y: -51
+  - type: Coin
+    id: 67
+    x: 6115
+    y: 16
+  - type: Coin
+    id: 67
+    x: 6113
+    y: 85
+  - type: ColumnStonesRight
+    id: 141
+    x: 6230
+    y: -416
+  - type: RisePsychedelia
+    id: 128
+    x: 5632
+    y: 156
+  - type: Rocks
+    id: 131
+    x: 5973
+    y: 244
+  - type: FloorPsychedelia
+    id: 138
+    x: 5972
+    y: 156
+  - type: FloorPsychedelia
+    id: 124
+    x: 5358
+    y: 320
+  - type: Turtle
+    id: 65
+    x: 5518
+    y: 196
+  - type: FloorPsychedelia
+    id: 142
+    x: 4972
+    y: 320
+  - type: ExitSignPsychedelia
+    id: 130
+    x: 4962
+    y: 309
+  - type: RedMushroom
+    id: 129
+    x: 5255
+    y: 319
+  - type: FloorPsychedelia
+    id: 146
+    x: 3989
+    y: 87
+  - type: Rocks
+    id: 147
+    x: 3986
+    y: 183
+  - type: FloorPsychedelia
+    id: 146
+    x: 4608
+    y: -77
+  - type: Rocks
+    id: 147
+    x: 4607
+    y: 19
+  - type: FloorPsychedelia
+    id: 146
+    x: 5222
+    y: -240
+  - type: Rocks
+    id: 147
+    x: 5221
+    y: -144
+  - type: FloorPsychedelia
+    id: 146
+    x: 5840
+    y: 156
+  - type: RedMushroom
+    id: 129
+    x: 5894
+    y: 146
+  - type: Rocks
+    id: 147
+    x: 5840
+    y: 252
+  - type: FloorPsychedelia
+    id: 124
+    x: 5356
+    y: -240
+  - type: Rocks
+    id: 143
+    x: 5355
+    y: -145
+  - type: Rocks
+    id: 131
+    x: 5661
+    y: -144
+  - type: Rocks
+    id: 137
+    x: 5968
+    y: -143
+  - type: Coin
+    id: 67
+    x: 6117
+    y: -123
+  - type: Coin
+    id: 67
+    x: 6118
+    y: -197
+  - type: FloorPsychedelia
+    id: 148
+    x: 3434
+    y: 87
+  - type: Rocks
+    id: 149
+    x: 3434
+    y: 183
+  - type: Rocks
+    id: 137
+    x: 1363
+    y: 360
+  - type: madHatter
+    id: 154
+    x: 950
+    y: 188
+  - type: skeleton
+    id: 155
+    x: 1785
+    y: -27
+  - type: madHatter
+    id: 154
+    x: 2223
+    y: 215
+  - type: skeleton
+    id: 155
+    x: 3335
+    y: 13
+  - type: madHatter
+    id: 154
+    x: 4804
+    y: -136
+  - type: skeleton
+    id: 155
+    x: 5622
+    y: -283
+  - type: madHatter
+    id: 154
+    x: 5103
+    y: 261
+  - type: FloatingFloor
+    id: 126
+    x: 1137
+    y: 206
+  - type: FloatingFloor
+    id: 126
+    x: 1302
+    y: 128
+player_spawn_points:
+  - x: 259
+    y: -19
+  - x: 3104
+    y: -46
+  - x: 6090
+    y: 48

@@ -1,0 +1,19 @@
+@startuml "client-draw"
+
+actor Server
+
+Server-> Client_Protocol: <packet>
+Client_Protocol -> Socket: receive packet size
+Client_Protocol -> Socket: receive gamestate
+Client_Protocol -> ClientAction: deserialize(buffer)
+gamstate -> Client_Protocol : gamestate
+Client_Protocol -> reciver_client: gamestate
+reciver_client -> responseQueue: push(gamestate)
+responseQueue <- graphics: pop()
+responseQueue -> graphics: gamestate
+
+actor Client
+
+graphics -> Client:draw()
+
+@enduml

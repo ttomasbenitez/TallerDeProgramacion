@@ -1,0 +1,233 @@
+@startuml
+hide empty attributes
+hide circle
+package RendererManager {
+  class RendererManager {
+    -Renderer *renderer
++RendererManager(Renderer *renderer);
+    + clear()
+    + copy(Texture* sprite, Rect image, Rect target)
+    + addBackground(Texture* background)
+    + Rect addText(string text,string FONTNAME, int fontSize,
+    int posX, int posY, SDL_Color color)
+    +present()
+
+
+}
+}
+package graphics {
+  class graphics <<thread>> {
+    -Queue<GameState> &responseQueue;
+    -Queue<ClientAction> &queueActions;
+    -SDL sdl;
+    -int clientID;
+    -Client &client;
+    -Mixer mixer;
+    -MusicManager musicManager;
+    - renderEntity(RenderableGameEntity entity, Rect camera, RendererManager *rendererManager);
+    - loading(RendererManager *rendererManager);
+    - connectionLost(RendererManager *rendererManager);
+    +Graphics(Queue<GameState> &queue, Queue<ClientAction> &queueActions, Client &client);
+    + draw(GameState response, RendererManager *rendererManager, MusicManager *musicManager);
+   + bool initScreen(RendererManager *rendererManager, Window *window, MusicManager *musicManager);
+    + run() override;
+    + stop() override;
+}
+graphics--*RendererManager.RendererManager
+
+}
+
+package Choose {
+class Choose{}
+class ChooseCharacters extends Choose{}
+class ChooseScenery extends Choose{}
+
+}
+package MapsParser {
+  class MapsParser{
+   - YAML::Node mapsNode
+   -mapData loadMap(YAML::Node e)
+   +MapsParser(const char *filename)
+   +getMaps(vector<mapData> &maps)
+   +addNewMap(const string filePath, const string mapName)
+}
+}
+package LevelEditor {
+  class CommonEditor {
+    -RendererManager *rendererManager
+    -Camera camera
+    -Palette palette
+    -LevelData level
+   - string filename
+    + initCommonEditor()
+    + int selectEntityToEdit()
+    }
+  class CreateLevel extends CommonEditor {}
+  class LevelEdit extends CommonEditor {}
+CreateLevel-->MapsParser.MapsParser
+
+  class LevelParser{
+  -  YAML::Node level
+    +LevelParser(const char *filename);
+    + loadAnimationInfo(LevelEntity &entity);
+    + loadEntityInfo(LevelEntity &entity);
+    + LevelData readLevelData()
+    + int getScenery()
+    + writeLevelData(const string &filePath, const LevelData &levelData)
+}
+
+
+  class ElementReader {
+    -YAML::Node element
+    -Item loadElement(YAML::Node e)
+    +explicit ElementReader(const char *filename)
+    + loadElements(vector<Item> &itemList)
+    + Item getBackground()
+
+}
+  Palette --> ElementReader
+
+  class Palette {
+    -vector<Element> palette
+    -RendererManager *rendererManager
+   - vector<Texture*> sprites
+  -  int cameraY
+ -   int scrollPos
+    -vector<Item> readItems(int numbOfScenery)
+    +Palette(RendererManager *rendererManager,
+    int numbOfScenery)
+    + showPalette()
+    +pair<int, string> selectEntity(int mouseX,
+    int mouseY)
+    + updatePosition(int scrollY)
+}
+  class GraphicsLevelEditor {
+-RendererManager *rendererManager
+    - renderEntities(LevelData level, Camera camera)
+    - renderButtons()
+    - renderNotifications(int &opacity, string buttonPath)
+    - renderBackground(int backgroundID)
+    +GraphicsLevelEditor(RendererManager *rendererManager)
+    + renderLevel(int &opacity, string buttonPath, Camera camera,
+      LevelData level, Palette *palette)
+}
+  class EventsManager {
+    -LevelData *level
+    -Palette *palette
+    -Camera *camera
+    -int *x
+   - int *y
+  -  int *selectedEntityID
+    - chooseNewEntity()
+    - scroll(bool &scrool, int &scrollSpeed, int speed)
+    - saveGame(int &opacity, string &buttonPath,string filename)
+    + EventsManager(LevelData *level, int *x, int *y, int *selectedEntityID, 
+      Camera *camera, Palette *palette)
+    + mouseButtonDown(bool &scrool, int &scrollSpeed, bool &quit, int &n, 
+      int &opacity,string &buttonPath, string filename)
+    + keyDown(SDL_Event event, bool &quit)
+    + windowsEvent(SDL_Event event, int &n, bool &quit)
+    + dragSelectedEntity()
+}
+
+EventsManager-->LevelParser
+LevelEdit-->LevelParser
+
+  CommonEditor --* Palette
+  CommonEditor --* RendererManager.RendererManager
+  Palette --* RendererManager.RendererManager
+  GraphicsLevelEditor --* RendererManager.RendererManager
+  CommonEditor --> EventsManager
+  CommonEditor --> GraphicsLevelEditor
+
+
+}
+ 
+package Menu {
+class MenuOptionsManager{
+
+   # RendererManager *rendererManager
+    #MusicManager *musicManager
+    #vector<Rect> buttons
+   + MenuOptionsManager(RendererManager *rendererManager, MusicManager *musicManager)
+    # show(vector<string> options, vector<SDL_Color> mainColors)
+    # createMenu(vector<std::string> options,vector<SDL_Color> mainColors)
+
+
+}
+class Menu extends MenuOptionsManager{
+    -Queue<ClientAction> &actionQueue
+   - Queue<GameState> &responseQueue
+  -  bool isEditing
+
+    +Menu(RendererManager *rendererManager, MusicManager *musicManager,
+ Queue<ClientAction> &actionQueue, Queue<GameState> &responseQueue)
+    + initMenu(gameInformation &game, Window *window)
+    - events(bool &hasClosed, gameInformation &game, Window *window)
+    -bool joinCreateMenu(gameInformation &game, Window *window, bool &hasClosed)
+    -int chooseCharacter();
+    -int editLevels(Window *window)
+}
+class MenuLevelEditor extends MenuOptionsManager{
+    -Window *window
+   + MenuLevelEditor(RendererManager *rendererManager,
+ MusicManager *musicManager)
+    +int initMenu(Window *window)
+    -int events(bool &hasClosed)
+    - editLevels(bool &hasClosed)
+    - createLevels(bool &hasClosed)
+    - returnToMenu()
+    - checkHasClosed(int n, bool &hasClosed)
+}
+class JoinMenu{
+    -RendererManager *rendererManager
+    -Queue<ClientAction> &actionQueue
+   - Queue<GameState> &responseQueue
+  -  int event(bool &finished, int &page, int n, vector<Rect> buttons)
+   -  loading()
++    JoinMenu(RendererManager *rendererManager, 
+Queue<ClientAction> &actionQueue, Queue<GameState> &responseQueue)
+ -   int join()
+}
+class MapsMenu{
+  -  RendererManager *rendererManager;
+   - MusicManager *musicManager;
+    -vector<mapElement> mapElements;
+    -int cameraY;
+   + MapsMenu(RendererManager *rendererManager, MusicManager *musicManager)
+    +string initMenu()
+  - string events()
+   -string selectMap(int mouseX, int mouseY)
+    - showMenuGames()
+
+}
+class CreateFileMenu{}
+class UserNameMenu{}
+
+Menu-->Choose.ChooseCharacters
+MenuLevelEditor-->Choose.ChooseCharacters
+MenuLevelEditor-->Choose.ChooseScenery
+MenuLevelEditor-->CreateFileMenu
+MenuLevelEditor-->LevelEditor.CreateLevel
+MenuLevelEditor-->LevelEditor.LevelEdit
+MenuLevelEditor-->MapsMenu
+Menu-->JoinMenu
+Menu-->UserNameMenu
+Menu-->MapsParser.MapsParser
+
+
+MenuOptionsManager--*RendererManager.RendererManager
+MapsMenu--*RendererManager.RendererManager
+CreateFileMenu--*RendererManager.RendererManager
+UserNameMenu--*RendererManager.RendererManager
+JoinMenu--*RendererManager.RendererManager
+
+
+}
+graphics.graphics-->Menu.Menu
+
+
+
+
+
+@enduml

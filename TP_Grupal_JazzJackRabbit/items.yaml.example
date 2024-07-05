@@ -1,0 +1,63 @@
+background: 70
+player:  1
+elements:
+    - id:   70
+      type:   'Spikes'
+    - id:   82
+      type:   'Spikes'
+    - id:   73
+      type:   'Spikes'
+    - id:   77
+      type:   'Spikes'
+    - id:   74
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   82
+      type:   'Spikes'
+    - id:   73
+      type:   'Spikes'
+    - id:   77
+      type:   'Spikes'
+    - id:   74
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'
+    - id:   70
+      type:   'Spikes'

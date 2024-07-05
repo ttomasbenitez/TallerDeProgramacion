@@ -1,0 +1,9 @@
+maps:
+  - path: /testBeachLevel.yaml
+    name: mapa beach1
+  - path: /psychedelia.yaml
+    name: Psychedelia
+  - path: /PSYCHEDELIA2.YAML
+    name: Psychedelia2
+  - path: /beach2.yaml
+    name: beach2

@@ -1,0 +1,71 @@
+@startuml
+hide empty attributes
+hide circle
+package client{
+
+class Client{
+    -std::mutex exit_lock
+    -std::condition_variable exit_cv;
+    +start()
+    +notify_exit()
+}
+
+Client --* network.Sender
+Client --* network.Reciver
+Client --* Graphics
+Client --* network.Protocol
+Sender --> Protocol
+Reciver --> Protocol
+
+package network{
+
+class Sender <<thread>>{
+   -Queue<ClientAction>& actionQueue
+   - Client& client
+}
+
+class Reciver <<thread>>{
+    -Queue<GameState>& responseQueue;
+    -Client& client;
+}
+
+class Protocol{ 
+    -Socket skt
+    -bool was_close
+    +send(ClientAction action)
+    +recive()
+}
+
+
+}
+  class Graphics <<thread>> {
+    -Queue<GameState> &responseQueue;
+    -Queue<ClientAction> &queueActions;
+    -SDL sdl;
+    -int clientID;
+    -Client &client;
+    -Mixer mixer;
+    -MusicManager musicManager;
+    - renderEntity(RenderableGameEntity entity, Rect camera, RendererManager *rendererManager);
+    - loading(RendererManager *rendererManager);
+    - connectionLost(RendererManager *rendererManager);
+    +Graphics(Queue<GameState> &queue, Queue<ClientAction> &queueActions, Client &client);
+    + draw(GameState response, RendererManager *rendererManager, MusicManager *musicManager);
+   + bool initScreen(RendererManager *rendererManager, Window *window, MusicManager *musicManager);
+    + run() override;
+    + stop() override;
+}
+class Actions <<thread>>{
+   -Queue<ClientAction>& actionQueue
+   +process_actions();
+}
+Class clientAction{}
+Class gamestate{}
+network.Protocol --> clientAction
+network.Protocol --> gamestate
+Graphics --> gamestate
+Actions --> clientAction
+Graphics --> clientAction
+Graphics --* Actions
+}
+@enduml

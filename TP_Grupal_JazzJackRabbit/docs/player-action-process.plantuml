@@ -1,0 +1,20 @@
+@startuml "client-draw"
+
+actor Player
+
+Player -> SDL : keyboard_event
+SDL-> Actions : SDL_event_key_down
+Actions -> Actions : processAction()
+Actions -> actionsQueue: push(ClientAction)
+Sender -> actionsQueue: pop()
+Sender -> Protocol: send(ClientAction)
+Protocol -> ClientAction: serialize(ClientAction)
+ClientAction -> Protocol: std::vector<char> data
+Protocol -> socket: send data
+
+actor Server
+
+socket -> Server: <Package>
+
+
+@enduml

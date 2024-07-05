@@ -1,0 +1,26 @@
+IMAGENES 1 SOLO FRAME: (que ambos escenarios seguro compartan con diferentes imagenes).
+
+
+BEACH_FLOOR,
+BEACH_FLOATING_FLOOR,
+BEACH_PLATFORM,
+BEACH_FLOATING_PLATFORM,
+BEACH_RISE, 		(escaleras arriba)
+BEACH_DESCENT, 		(escaleras abajo)
+BEACH_RISE_DESCENT, 	(escaleras arriba_abajo)
+BEACH_EXIT_SIGN, 
+BEACH_LANDSCAPE, *
+
+ANIMACIONES:
+
+enemigos:
+CRAB - 8 FRAMES - SE REPITEN.
+
+FISH - 8 FRAMES - SE REPITEN.
+
+TURTLE - 10 FRAMES - SE REPITEN.
+
+items:
+GEM - 8 FRAMES - SE REPITEN.
+
+COIN - 20 FRAMES - SE REPITEN.
